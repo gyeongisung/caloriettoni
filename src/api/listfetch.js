@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const deleteFoodList = async _id => {
   try {
-    const res = await axios.delete(`/api/list/${_id}/meal`);
+    const res = await axios.delete(`${process.env.REACT_APP_API_URL}/api/list/${_id}/meal`);
     const result = res.data;
     // console.log(result);
     return result;
@@ -15,7 +15,7 @@ export const deleteFoodList = async _id => {
 
 export const deleteHealthList = async _id => {
   try {
-    const res = await axios.delete(`/api/list/${_id}/hel`);
+    const res = await axios.delete(`${process.env.REACT_APP_API_URL}/api/list/${_id}/hel`);
     const result = res.data;
     // console.log(result);
     return result;

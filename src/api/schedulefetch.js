@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getFoodSchedule = async () => {
   try {
-    const res = await axios.get(`/api${location.pathname}/food?iuser=1`);
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api${location.pathname}/food?iuser=1`);
     const result = res.data;
     return result;
   } catch (err) {
@@ -12,7 +12,7 @@ export const getFoodSchedule = async () => {
 
 export const getHealthSchedule = async () => {
   try {
-    const res = await axios.get(`/api${location.pathname}/hel?iuser=1`);
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api${location.pathname}/hel?iuser=1`);
     const result = res.data;
     return result;
   } catch (err) {
@@ -24,7 +24,7 @@ export const getHealthSchedule = async () => {
 
 export const getScheduleTextData = async setScheduleText => {
   try {
-    const res = await axios.get(`/api/user/1`);
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/1`);
     const result = res.data;
     setScheduleText([result]);
   } catch (err) {
@@ -36,7 +36,7 @@ export const getScheduleTextData = async setScheduleText => {
 
 export const patchScheduleTextData = async (iuser, editScheduleText) => {
   try {
-    const res = await axios.patch(`/api/user`, {
+    const res = await axios.patch(`${process.env.REACT_APP_API_URL}/api/user`, {
       iuser: iuser,
       goal: editScheduleText,
     });
@@ -51,7 +51,7 @@ export const patchScheduleTextData = async (iuser, editScheduleText) => {
 
 export const getScheduleList = async yearMonth => {
   try {
-    const res = await axios.get(`/api/calender/1?yearMonth=${yearMonth}`);
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/calender/1?yearMonth=${yearMonth}`);
     const result = res.data;
     // console.log(result);
     return result;

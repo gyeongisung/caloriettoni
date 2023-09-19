@@ -5,7 +5,7 @@ import axios from "axios";
 // 운동카테고리목록+분당칼로리 Get 기능
 export const getHealthCate = async () => {
   try {
-    const res = await axios.get("/api/exrec/exlist");
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/exrec/exlist`);
 
     const result = res.data;
     // console.log(result);
@@ -19,7 +19,7 @@ export const getHealthCate = async () => {
 export const getHealthCalculate = async (helName, time) => {
   try {
     const res = await axios.get(
-      `/api/exrec/subinfo?ihelCate=${helName}&time=${time}`,
+      `${process.env.REACT_APP_API_URL}/api/exrec/subinfo?ihelCate=${helName}&time=${time}`,
     );
     const result = res.data;
     console.log("결과", result);
@@ -32,7 +32,7 @@ export const getHealthCalculate = async (helName, time) => {
 //운동 기록(post)
 export const postHealthRecord = async _data => {
   try {
-    const res = await axios.post("/api/exrec", _data, {
+    const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/exrec`, _data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -52,7 +52,7 @@ export const postHealthRecord = async _data => {
 //식단 칼로리 get기능(모든음식카테고리 조회)
 export const getDietCalorie = async () => {
   try {
-    const res = await axios.get("/api/foodcate");
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/foodcate`);
     const result = res.data;
 
     return result;
@@ -64,7 +64,7 @@ export const getDietCalorie = async () => {
 //식단 post 기능
 export const postDietRecord = async (_formData, _data) => {
   try {
-    const res = await axios.post("api/foodrecord", _formData, {
+    const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/foodrecord`, _formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
